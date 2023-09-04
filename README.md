@@ -12,7 +12,7 @@ The app uses [distilbart-cnn-12-6](https://huggingface.co/sshleifer/distilbart-c
 
 GitHub repos: [client](https://github.com/marcinhodor/) & [server](https://github.com/marcinhodor/article_scraper_and_summarizer_server)
 
-Server deployed to Detaa Space: [link](https://articlesummarize-1-z7868205.deta.app/docs)
+Server deployed to Deta Space: [link](https://articlesummarize-1-z7868205.deta.app/docs)
 <br>
 Client deployed to (WIP).
 
