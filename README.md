@@ -14,6 +14,6 @@ GitHub repos: [client](https://github.com/marcinhodor/) & [server](https://githu
 
 Server deployed to Deta Space: [link](https://articlesummarize-1-z7868205.deta.app/docs)
 <br>
-Client deployed to (WIP).
+Client deployed to Netlify: [link](https://article-scraper-and-summarizer.netlify.app/)
 
 Created by Marcin Hodor. Contact me at mhodor@o2.pl
