@@ -22,7 +22,7 @@ app.add_middleware(
 
 @app.get("/")
 def index():
-    return {"message": "test"}
+    raise HTTPException(status_code=400, detail="Not found")
 
 
 @app.get("/articles/{website_name}")
