@@ -55,9 +55,5 @@ async def summarize_text(data: RequestData):
         )
     text_summarizer = TextSummarizer()
     summary = text_summarizer.summarize(text=data.text)
-    if summary == "":
-        raise HTTPException(
-            status_code=400, detail="Summarization failed, try again later"
-        )
-    print(summary)
+    # print(summary)
     return summary
