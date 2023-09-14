@@ -24,13 +24,13 @@ class TheGuardian:
             if article_links == []:
                 raise HTTPException(
                     status_code=400,
-                    detail="Could not fetch The Guardian news, try again later",
+                    detail="Could not fetch The Guardian articles",
                 )
             return article_links
         except:
             raise HTTPException(
                 status_code=400,
-                detail="Could not fetch The Guardian news, try again later",
+                detail="Could not fetch The Guardian articles",
             )
 
 
@@ -51,13 +51,11 @@ class BBC:
                 article_links.append("https://www.bbc.com" + link)
             if article_links == []:
                 raise HTTPException(
-                    status_code=400, detail="Could not fetch BBC news, try again later"
+                    status_code=400, detail="Could not fetch BBC articles"
                 )
             return set(article_links)
         except:
-            raise HTTPException(
-                status_code=400, detail="Could not fetch BBC news, try again later"
-            )
+            raise HTTPException(status_code=400, detail="Could not fetch BBC articles")
 
 
 class CNN:
@@ -77,10 +75,8 @@ class CNN:
                 article_links.append("https://edition.cnn.com" + link)
             if article_links == []:
                 raise HTTPException(
-                    status_code=400, detail="Could not fetch CNN news, try again later"
+                    status_code=400, detail="Could not fetch CNN articles"
                 )
             return set(article_links)
         except:
-            raise HTTPException(
-                status_code=400, detail="Could not fetch CNN news, try again later"
-            )
+            raise HTTPException(status_code=400, detail="Could not fetch CNN articles")
