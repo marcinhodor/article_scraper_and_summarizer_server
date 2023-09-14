@@ -11,13 +11,12 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-allowed_origins = ["https://article-scraper-and-summarizer.netlify.app", "localhost"]
+allowed_origins = ["*"]
 
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=allowed_origins,
-    allow_credentials=True,
     allow_methods=["GET", "POST"],
     allow_headers=["*"],
 )
