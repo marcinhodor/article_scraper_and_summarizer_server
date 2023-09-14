@@ -11,9 +11,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-allowed_origins = [
-    "https://article-scraper-and-summarizer.netlify.app",
-]
+allowed_origins = ["https://article-scraper-and-summarizer.netlify.app", "localhost"]
 
 
 app.add_middleware(
