@@ -1,6 +1,6 @@
 # uvicorn main:app --reload
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from datetime import date
 from pydantic import BaseModel
 from summarizer import TextSummarizer
@@ -11,9 +11,14 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
+allowed_origins = [
+    "https://article-scraper-and-summarizer.netlify.app",
+]
+
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://article-scraper-and-summarizer.netlify.app"],
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["GET", "POST"],
     allow_headers=["*"],
@@ -21,12 +26,12 @@ app.add_middleware(
 
 
 @app.get("/")
-def index():
+async def index():
     raise HTTPException(status_code=400, detail="Not found")
 
 
 @app.get("/articles/{website_name}")
-def get_articles(website_name: str):
+async def get_articles(website_name: str):
     if website_name == "the_guardian":
         links = TheGuardian(date.today()).get_articles()
         return article_data.get_details_for_all_articles(links)
@@ -51,7 +56,7 @@ async def summarize_text(data: RequestData):
     if len(data.text) < 20:
         raise HTTPException(
             status_code=400,
-            detail="You need to provided text with at lest 20 characters",
+            detail="Provide text at least 20 characters long",
         )
     text_summarizer = TextSummarizer()
     summary = text_summarizer.summarize(text=data.text)
